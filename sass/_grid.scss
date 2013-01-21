@@ -1,0 +1,23 @@
+@import "variables";
+@import "mixins";
+
+$grid-padding: 20px;
+$grid-columns: 10;
+
+.grid {
+	margin-left: -$grid-padding;
+}
+
+[class*="col-"] {
+	float: left;
+	padding-left: $grid-padding;
+}
+
+@for $i from 2 through $grid-columns {
+	@for $j from 1 to $i {
+
+		.col-#{$j}-#{$i} {
+			width: $j/$i * 100%;
+		}
+	}
+}
